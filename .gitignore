@@ -1,0 +1,12 @@
+# root dir - hide everything installed by composer and npm, the svn folder and the sass cache files
+.sass-cache
+.idea/
+.DS_Store
+web.config
+
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless

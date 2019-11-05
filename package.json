@@ -1,0 +1,31 @@
+{
+  "name": "serverless-template",
+  "version": "1.0.0",
+  "description": "Serverless template for Code the Change",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codethechangeyyc/serverless-template.git"
+  },
+  "keywords": [
+    "code",
+    "the",
+    "change",
+    "serverless"
+  ],
+  "author": "hlugo@benevity.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codethechangeyyc/serverless-template/issues"
+  },
+  "homepage": "https://github.com/codethechangeyyc/serverless-template#readme",
+  "dependencies": {
+    "aws-sdk": "^2.562.0"
+  },
+  "devDependencies": {
+    "serverless-pseudo-parameters": "^2.5.0"
+  }
+}
