@@ -33,6 +33,23 @@ deploying to.
 Real example:
 `serverless deploy --aws-profile experiments --stage dev`
 
+#### Deploy the static website
+If you need a front end for this project you can deploy a static website
+by running: `serverless --aws-profile <profile> client deploy`
+
+This will take the content of the `./client/dist` folder and push it to
+an S3 bucket configured for static website hosting. You can use the tool
+of your choice as long as you can compile your assets into `./client/dist`
+If you need to point to a specific folder instead, please change the 
+configuration in the `serverless.yml` file to be:
+```
+custom:
+  client:
+    ...
+    distributionFolder: path/to/files
+    ...
+```
+
 ## Components of the template
 ### Functions
 The compute functionality of the API is provided by AWS Lambda function
@@ -58,3 +75,14 @@ maintain, monitor, and secure APIs at any scale. If you want to learn more
 about how your functions are wired behind the scenes, visit the API Gateway
 section of the AWS console.
 
+## Controlling your costs
+Please keep in mind that although AWS provides decent capacity on it free 
+tier for most all of the services used in this template, there are costs 
+associated to them.
+
+In order to ensure that you stay inside the limits of the free tier, refer 
+to:
+- DynamoDB Pricing: https://aws.amazon.com/dynamodb/pricing/on-demand/#DynamoDB_free_tier
+- API Gateway Pricing: https://aws.amazon.com/api-gateway/pricing/#Free_Tier
+- Lambda Pricing: https://aws.amazon.com/lambda/pricing/
+- S3 Pricing: https://aws.amazon.com/s3/pricing/
