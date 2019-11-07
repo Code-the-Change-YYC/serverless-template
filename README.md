@@ -17,6 +17,13 @@ In order to run the project you will need to have:
 - Clone this repository
 - Run `npm install`
 
+### Troubleshooting
+- If you installed npm as and administrator you may need to change the 
+owner for you node packages folder.
+- You will need to use an AWS profile with enough permissions to 
+create the resources for the project. You will get a permissions error
+if the profile does not have the required permissions. 
+
 ### Deploying the project
 The serverless framework provides a wrapper around AWS CloudFormation 
 so it will deploy a CloudFormation stack behind the scenes. In order
@@ -93,6 +100,35 @@ and it is a service that makes it easy for developers to create, publish,
 maintain, monitor, and secure APIs at any scale. If you want to learn more 
 about how your functions are wired behind the scenes, visit the API Gateway
 section of the AWS console.
+
+## Testing the sample API
+You can test the sample API using CURL or you REST client of choice. Here 
+are some examples on how to communicate with the API using CURL:
+
+Create a new record  
+```
+curl -d '{"code":"code1", "name":"name1"}' -H "Content-Type: application/json" -X POST https://<API-URL>/v1/example
+```
+
+Update an existing record  
+```
+curl -d '{"name":"name1"}' -H "Content-Type: application/json" -X PUT https://<API-URL>/v1/example/{code}
+```
+
+Delete an existing record  
+```
+curl -H "Content-Type: application/json" -X DELETE https://<API-URL>/v1/example/{code}
+```
+
+List existing records  
+```
+curl -H "Content-Type: application/json" -X GET https://<API-URL>/v1/example
+```
+
+Retrieve an existing record  
+```
+curl -H "Content-Type: application/json" -X GET https://<API-URL>/v1/example/{code}
+```
 
 ## Controlling your costs
 Please keep in mind that although AWS provides decent capacity on it free 
