@@ -4,7 +4,15 @@
 This template provides you with the code needed to deploy a simple 
 NodeJS CRUD api built on top the serverless framework: https://serverless.com
 You will get a fully functional API that can manage information for a sample
-entity, storing the data on a DynamoDB table.
+entity, storing the data on a DynamoDB table. The entity structure 
+consist of two fields: code and name. The code should be unique since
+it is the primary (partition) key for the table. Sample data would 
+look like
+
+| code | name  |
+|---|---|
+|  H37J | John  |
+|  UM28 | Matt  |
 
 ## How to deploy your project
 ### Pre-requisites
@@ -73,6 +81,19 @@ custom:
     ...
 ```
 
+### Destroying the environment
+You can destroy the environment by running: 
+`serverless remove --aws-profile <profile> --stage <stage>`
+This will delete the stack associated to the project.
+
+Optionally you could login to the AWS Console and navigate to the 
+CloudFormation section and manually delete the stack associated with
+the project.
+
+If you deployed the static website, you can destroy the S3 resource
+associated with it by running: 
+`serverless --aws-profile <profile> client remove`
+
 ## Components of the template
 ### Functions
 The compute functionality of the API is provided by AWS Lambda function
@@ -112,7 +133,7 @@ curl -d '{"code":"code1", "name":"name1"}' -H "Content-Type: application/json" -
 
 Update an existing record  
 ```
-curl -d '{"name":"name1"}' -H "Content-Type: application/json" -X PUT https://<API-URL>/v1/example/{code}
+curl -d '{"name":"name-changed"}' -H "Content-Type: application/json" -X PUT https://<API-URL>/v1/example/{code}
 ```
 
 Delete an existing record  

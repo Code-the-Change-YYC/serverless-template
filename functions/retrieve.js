@@ -26,7 +26,8 @@ module.exports.handler = async event => {
     };
   }
 
-  if (retrieveResult.Item === null) {
+  if (retrieveResult.Item === null ||
+    typeof retrieveResult.Item === "undefined") {
     return {
       statusCode: 404
     };
