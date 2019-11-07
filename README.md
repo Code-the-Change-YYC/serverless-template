@@ -17,7 +17,7 @@ In order to run the project you will need to have:
 - Clone this repository
 - Run `npm install`
 
-### Deplying the project
+### Deploying the project
 The serverless framework provides a wrapper around AWS CloudFormation 
 so it will deploy a CloudFormation stack behind the scenes. In order
 to perform the stack deployment run:
@@ -32,6 +32,18 @@ deploying to.
 
 Real example:
 `serverless deploy --aws-profile experiments --stage dev`
+
+**IMPORTANT:** If you decide to deploy more than one copy of the template 
+in the same AWS account, please ensure you rename the name of the 
+service linked to the project. You can find the name of the service in 
+the `serverless.yml` file:
+```
+service: serverless-template
+```  
+ie:
+```
+service: my-custom-project-name
+```
 
 #### Deploy the static website
 If you need a front end for this project you can deploy a static website
