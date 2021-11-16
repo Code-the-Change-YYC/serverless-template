@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/codethechangeyyc/serverless-template#readme",
   "dependencies": {
-    "aws-sdk": "^2.562.0",
+    "aws-sdk": "^2.814.0",
     "serverless-finch": "^2.4.3"
   },
   "devDependencies": {
